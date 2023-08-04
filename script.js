@@ -27,7 +27,7 @@ function addTask() {
   editButton.addEventListener('click', () => {
     const newText = prompt('Yeni metni giriniz:', taskText);
     if (newText !== null) {
-      taskItem.querySelector('span').textContent = newText;
+      editTask(taskItem, newText);
     }
   });
 
@@ -47,3 +47,13 @@ taskInput.addEventListener('keydown', (event) => {
     addTask();
   }
 });
+
+// Tamamlanmış görevi silme fonksiyonu
+function deleteTask(taskItem) {
+  taskList.removeChild(taskItem);
+}
+
+// Görev metnini düzenleme fonksiyonu
+function editTask(taskItem, newText) {
+  taskItem.querySelector('span').textContent = newText;
+}
